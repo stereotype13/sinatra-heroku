@@ -10,7 +10,7 @@ class Blocmetrics < Sinatra::Base
       "This is another test."
     end
     
-    get '' do
+    get '/event' do
       erb :event    
     end
     
