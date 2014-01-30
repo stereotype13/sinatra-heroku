@@ -78,5 +78,6 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   pg
+  rack
   sinatra
   sqlite3

@@ -2,7 +2,7 @@ require 'sinatra'
 require './models'
 
 class Blocmetrics < Sinatra::Base
-    set :public_folder, "#{File.dirname(__FILE__)}/public"
+    #set :public_folder, "#{File.dirname(__FILE__)}/public"
     
     get '/' do
       "Hello World!"
