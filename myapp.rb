@@ -10,4 +10,4 @@ class Blocmetrics < Sinatra::Base
     end
 end
 
-Blocmetrics.run!
+#Blocmetrics.run!
