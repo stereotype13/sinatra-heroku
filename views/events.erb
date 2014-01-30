@@ -1,0 +1,7 @@
+<h1>Events</h1>
+
+<table>
+    <% @events.each do |event|%>
+        <tr><td><%= event.id %></td><td><%= event.parameter_1 %></td><td><%= event.parameter_2 %></td><td><%= event.time_stamp %></td></tr>
+    <% end %>
+</table>
