@@ -1,2 +1,3 @@
 require './myapp'
-run Sinatra::Application
+
+run Blocmetrics.new
