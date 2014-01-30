@@ -1,6 +1,6 @@
 require 'sinatra'
 
-class Blocmetrics < Sinatra::Application
+class Blocmetrics < Sinatra::Base
     get '/' do
       "Hello World!"
     end
