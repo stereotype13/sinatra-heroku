@@ -1,0 +1,18 @@
+# Logfile created on 2014-01-30 12:36:18 -0500 by logger.rb/31641
+I, [2014-01-30T12:36:18.262128 #497629]  INFO -- : 0:  addressable (2.3.5) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/addressable-2.3.5.gemspec
+I, [2014-01-30T12:36:20.244342 #497629]  INFO -- : 0:  daemons (1.1.9) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/daemons-1.1.9.gemspec
+I, [2014-01-30T12:38:44.248649 #497629]  INFO -- : 0:  eventmachine (1.0.3) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/eventmachine-1.0.3.gemspec
+I, [2014-01-30T12:38:48.337098 #497629]  INFO -- : 0:  excon (0.31.0) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/excon-0.31.0.gemspec
+I, [2014-01-30T12:38:48.338188 #497629]  INFO -- : 0:  multi_json (1.8.4) from /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/specifications/multi_json-1.8.4.gemspec
+I, [2014-01-30T12:38:51.182373 #497629]  INFO -- : 0:  heroku-api (0.3.17) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/heroku-api-0.3.17.gemspec
+I, [2014-01-30T12:38:52.574384 #497629]  INFO -- : 0:  launchy (2.4.2) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/launchy-2.4.2.gemspec
+I, [2014-01-30T12:38:53.813738 #497629]  INFO -- : 0:  netrc (0.7.7) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/netrc-0.7.7.gemspec
+I, [2014-01-30T12:38:55.705371 #497629]  INFO -- : 0:  mime-types (2.1) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/mime-types-2.1.gemspec
+I, [2014-01-30T12:38:56.987527 #497629]  INFO -- : 0:  rest-client (1.6.7) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/rest-client-1.6.7.gemspec
+I, [2014-01-30T12:38:58.722394 #497629]  INFO -- : 0:  rubyzip (1.1.0) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/rubyzip-1.1.0.gemspec
+I, [2014-01-30T12:39:02.366602 #497629]  INFO -- : 0:  heroku (3.2.4) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/heroku-3.2.4.gemspec
+I, [2014-01-30T12:39:02.367770 #497629]  INFO -- : 0:  rack (1.5.2) from /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/specifications/rack-1.5.2.gemspec
+I, [2014-01-30T12:39:02.368374 #497629]  INFO -- : 0:  tilt (1.4.1) from /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/specifications/tilt-1.4.1.gemspec
+I, [2014-01-30T12:39:05.139948 #497629]  INFO -- : 0:  sinatra (1.1.0) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/sinatra-1.1.0.gemspec
+I, [2014-01-30T12:39:23.383359 #497629]  INFO -- : 0:  thin (1.2.7) from /var/lib/stickshift/52e88e805004460d6e0000a4/app-root/data/lib/ruby/gems/specifications/thin-1.2.7.gemspec
+I, [2014-01-30T12:39:23.384627 #497629]  INFO -- : 0:  bundler (1.5.1) from /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/specifications/bundler-1.5.1.gemspec
