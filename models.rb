@@ -2,7 +2,13 @@ require 'data_mapper'
 require 'bcrypt'
 require 'securerandom'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite:db.sqlite")
+configure :development do
+    DataMapper.setup(:default, "sqlite:db.sqlite")
+end
+
+configure :production do
+    DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_AQUA_URL'])
+end
 
 class Event
    include DataMapper::Resource
