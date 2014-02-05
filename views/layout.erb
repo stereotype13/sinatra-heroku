@@ -5,6 +5,9 @@
     <script type="text/javascript" src="javascripts/blocmetrics.js"></script>
     <title>Blocmetrics</title>
 
+    <p><%if current_user %>Welcome, <%= current_user.username%><%else%><a href="/login">Log In</a><%end%> | <a href="/sign_up">Sign Up</a> | <a href="/auth/logout" method="POST">Log Out</a></p>
+
+
     <style>
     body {
       margin: 10px auto;
@@ -14,6 +17,14 @@
   </head>
   <body>
     <h1>Blocmetrics</h1>
+
+    <% if flash[:success] %>
+      <p><%= flash[:success] %></p>
+    <% end %>
+
+    <% if flash[:error] %>
+      <p><%= flash[:error] %></p>
+    <% end %>
 
     <%= yield %>
   </body>

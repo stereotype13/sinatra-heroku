@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 gem 'sinatra'
 gem 'rack'
-gem "data_mapper"
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+gem 'bcrypt-ruby'
+gem 'sinatra-flash'
 
 group :production do
     gem "pg"
