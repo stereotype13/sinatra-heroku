@@ -97,14 +97,14 @@ class Blocmetrics < Sinatra::Base
       redirect to('/')
     end
     
-    get '/webapps' do
-      if current_user
-        @webapps = Webapp.all(user: current_user)
-        erb :webapps
-      else
-        "You must be logged in to do that."
-      end
-    end
+    # get '/webapps' do
+    #   if current_user
+    #     @webapps = Webapp.all(user: current_user)
+    #     erb :webapps
+    #   else
+    #     "You must be logged in to do that."
+    #   end
+    # end
 
     # get '/webapps/new' do
     #   if current_user
