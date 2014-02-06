@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/flash'
 require './models'
 
-class Blocmetrics < Sinatra::Base
+class Blocmetrics < Sinatra::Application
     register Sinatra::Flash
     enable :sessions
 
