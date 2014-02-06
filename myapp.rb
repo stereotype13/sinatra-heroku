@@ -81,7 +81,7 @@ class Blocmetrics < Sinatra::Application
 
       if authorize(username, password)
         flash[:success] = "Welcome, #{username}."
-        redirect to('/')
+        redirect '/'
       else
         flash[:error] = "Couldn't find username and/or password."
         redirect '/login'
