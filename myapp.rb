@@ -70,7 +70,7 @@ class Blocmetrics < Sinatra::Application
         redirect to('/')
         
       else
-        redirect to('/sign_up')
+        redirect '/sign_up'
       end
 
     end
@@ -94,45 +94,45 @@ class Blocmetrics < Sinatra::Application
       session.destroy
       current_user = nil
       flash[:success] = "Successfully signed out."
-      redirect to('/')
+      redirect '/'
     end
     
-    # get '/webapps' do
-    #   if current_user
-    #     @webapps = Webapp.all(user: current_user)
-    #     erb :webapps
-    #   else
-    #     "You must be logged in to do that."
-    #   end
-    # end
+    get '/webapps' do
+      if current_user
+        @webapps = Webapp.all(user: current_user)
+        erb :webapps
+      else
+        "You must be logged in to do that."
+      end
+    end
 
-    # get '/webapps/new' do
-    #   if current_user
-    #     erb :new_webapp
-    #   else
-    #     "You must be logged in to do that."
-    #   end
+    get '/webapps/new' do
+      if current_user
+        erb :new_webapp
+      else
+        "You must be logged in to do that."
+      end
       
-    # end
+    end
 
-    # post '/webapps/create' do
+    post '/webapps/create' do
 
-    #   if current_user
-    #     @webapp = Webapp.new
-    #     @webapp.user = current_user
-    #     @webapp.domain = params[:domain]
-    #     if @webapp.save
-    #       flash[:success] = "Webapp registered successfully."
-    #       redirect to('/')
-    #     else
-    #       flash[:error] = "There was a problem registering your webapp."
-    #       redirect to('/webapps/new')
-    #     end
-    #   else
-    #     "You must be logged in to do that."
-    #   end
+      if current_user
+        @webapp = Webapp.new
+        @webapp.user = current_user
+        @webapp.domain = params[:domain]
+        if @webapp.save
+          flash[:success] = "Webapp registered successfully."
+          redirect '/'
+        else
+          flash[:error] = "There was a problem registering your webapp."
+          redirect '/webapps/new'
+        end
+      else
+        "You must be logged in to do that."
+      end
       
-    # end
+    end
 
     get '/event' do
       erb :event    
