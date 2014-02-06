@@ -16,8 +16,8 @@
                   type: "POST",
                   url: "http://stereotype13-blocmetrics.herokuapp.com/event/data",
                   data: { 
-                            parameter_1: "Hello",
-                            parameter_2: "World"
+                            tag_id: obj_id,
+                            tag_type: obj_type
                         }
                 }
             )

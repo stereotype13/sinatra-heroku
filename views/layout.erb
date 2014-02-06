@@ -5,7 +5,7 @@
     <script type="text/javascript" src="javascripts/blocmetrics.js"></script>
     <title>Blocmetrics</title>
 
-    <p><%if current_user %>Welcome, <%= current_user.username%><%else%><a href="/login">Log In</a><%end%> | <a href="/sign_up">Sign Up</a> | <a href="/auth/logout" method="POST">Log Out</a></p>
+    <p><%if current_user %>Welcome, <%= current_user.username%> | <a href="/webapps/new">Register a New Webapp</a> | <a href="/webapps">Your Webapps</a> | <a href="/auth/logout" method="POST">Log Out</a><%else%><a href="/login">Log In</a> | <a href="/sign_up">Sign Up</a><%end%> </p>
 
 
     <style>

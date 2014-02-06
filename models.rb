@@ -68,8 +68,9 @@ class Event
    belongs_to :webapp, :required => false
 
    property :id, Serial, key: true
-   property :parameter_1, String
-   property :parameter_2, String
+   property :tag_id, String
+   property :tag_type, String
+   property :url, String
    property :time_stamp, DateTime
    
    def initialize()
