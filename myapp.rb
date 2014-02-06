@@ -84,7 +84,7 @@ class Blocmetrics < Sinatra::Application
         redirect to('/')
       else
         flash[:error] = "Couldn't find username and/or password."
-        redirect to('/login')
+        redirect '/login'
       end
 
     end
