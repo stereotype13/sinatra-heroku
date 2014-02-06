@@ -29,7 +29,7 @@ class Blocmetrics < Sinatra::Application
         end
 
         def current_user
-          session = Session.first(request.cookies["session_token"])
+          session = Session.first(id: request.cookies["session_token"])
           if !session.nil?
             session.user
           else
