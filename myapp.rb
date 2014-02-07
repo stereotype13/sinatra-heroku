@@ -116,6 +116,11 @@ class Blocmetrics < Sinatra::Application
         "You must be logged in to do that."
       end
     end
+	
+	get '/all_webapps' do
+		@webapps = Webapp.all()
+        erb :webapps
+	end
 
     get '/webapps/new' do
       if current_user
@@ -169,10 +174,19 @@ class Blocmetrics < Sinatra::Application
     end
     
     post '/event/data' do
-		@event = Event.new
-		@event.parameter_1 = params[:parameter_1]
-		@event.parameter_2 = params[:parameter_2]
-		@event.save
+		#First, find the webapp that this event belongs to
+		if webapp = Webapp.first(webapp_key: params[:webapp_key])
+			puts "Webapp found"
+			#Then, create the new event.
+			@event = Event.new
+			@event.tag_id = params[:tag_id]
+			@event.tag_type = params[:tag_type]
+			@event.url = params[:event_url]
+			@event.webapp = webapp
+			@event.save
+		else
+			puts "Webapp not found"
+		end
 	end
 end
 

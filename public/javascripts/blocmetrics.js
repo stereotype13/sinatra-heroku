@@ -6,18 +6,20 @@
         function(event)
         {
             var clickedObject = $(event.target);
-            var obj_id = clickedObject.prop('id');
-            var obj_type = clickedObject.prop('type');
+            var obj_id = (clickedObject.prop('id'));
+            var obj_type = (clickedObject.prop('tagName'));
             
-            alert("I'm here!");
+            alert("I'm here");
             
             $.ajax(
                 {
                   type: "POST",
-                  url: "http://stereotype13-blocmetrics.herokuapp.com/event/data",
+				  url: "/event/data",
                   data: { 
+							webapp_key: "6DMsQrH9qjeIzJROp+slN3lj",
                             tag_id: obj_id,
-                            tag_type: obj_type
+                            tag_type: obj_type,
+							event_url: $(location).attr('href')
                         }
                 }
             )
