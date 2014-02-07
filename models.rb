@@ -19,6 +19,8 @@ class User
   property :username, String, :length => 3..50
   property :password, BCryptHash
   
+  validates_uniqueness_of :username, message: "Sorry. That user name has already been taken. =("
+
   def authenticate(attempted_password)
     if self.password == attempted_password
       true

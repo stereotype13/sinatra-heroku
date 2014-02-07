@@ -10,8 +10,7 @@ class Blocmetrics < Sinatra::Application
 
         def authorize(username, password)
           user = User.first(:username => username)
-          p user.username
-          p user.password
+         
           if !user.nil? && user.authenticate(password)
             #user is authenticated, so let's create a session
             session = Session.new
@@ -65,9 +64,20 @@ class Blocmetrics < Sinatra::Application
       if password == confirm_password
         @user.username = params[:username]
         @user.password = password
-        @user.save
-        flash[:success] = "You've signed up successfully."
-        redirect to('/')
+
+        if @user.save
+          flash[:success] = "You've signed up successfully."
+          redirect to('/')
+        else
+          output = ""
+          @user.errors.each do |error|
+            output = output + error + '<br>'
+          end
+          flash[:error] = output
+          redirect '/sign_up'
+        end
+        
+        
         
       else
         redirect '/sign_up'
@@ -93,6 +103,7 @@ class Blocmetrics < Sinatra::Application
       session = Session.first(:user => current_user)
       session.destroy
       current_user = nil
+      response.delete_cookie "session_token"
       flash[:success] = "Successfully signed out."
       redirect '/'
     end
