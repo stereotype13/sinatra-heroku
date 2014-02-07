@@ -132,6 +132,7 @@ class Blocmetrics < Sinatra::Application
         @webapp = Webapp.new
         @webapp.user = current_user
         @webapp.domain = params[:domain]
+		@webapp.name = params[:name]
         if @webapp.save
           flash[:success] = "Webapp registered successfully."
           redirect '/'
@@ -145,6 +146,19 @@ class Blocmetrics < Sinatra::Application
       
     end
 
+	get '/webapps/:id/events' do
+		if current_user
+		  if @webapp = Webapp.first(user: current_user, id: params[:id])
+			@events = @webapp.events
+			erb :events
+		  else
+			"There was a problem finding your web application."
+		  end
+		else
+		  "You must be logged in to do that."
+		end
+	end
+	
     get '/event' do
       erb :event    
     end

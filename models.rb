@@ -40,7 +40,7 @@ class Session
   property :id, String, length: 344, key: true
   
   def initialize()
-    self.id = SecureRandom.base64(16)
+    self.id = SecureRandom.base64(255)
     #self.domain = nil
   end
   
@@ -52,11 +52,12 @@ class Webapp
   belongs_to :user, :required => false
 
   property :id, Serial, key: true
+  property :name, String
   property :webapp_key, String
   property :domain, String, length: 30
 
   def initialize()
-    self.webapp_key = SecureRandom.base64(16)
+    self.webapp_key = SecureRandom.base64(18)
     
   end
 
@@ -85,6 +86,11 @@ DataMapper.auto_upgrade!
 users = User.all
 users.each do |user|
   user.destroy
+end
+
+webapps = Webapp.all
+webapps.each do |webapp|
+	webapp.destroy
 end
 
 admin_user = User.new
