@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="javascripts/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="javascripts/blocmetrics.js"></script>
+	<meta charset="utf-8"> 
+    <script type="text/javascript" src="/javascripts/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/javascripts/blocmetrics.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.css"  type="text/css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <title>Blocmetrics</title>
+	
+	<div class="container">
+		<a href="/"><h1>Blocmetrics</h1></a>
+				
+		<div class="navbar">
+			<div class="navbar-inner">
+				
+				<% if current_user %>	
+					<ul class="nav">
+						<li><a href="/webapps">Your Webapps</a></li>
+						<li><a href="/webapps/new">Register a New Webapp</a></li>	
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#">Welcome, <%= current_user.username%></a></li>
+						<li><a href="/auth/logout">Sign Out</a></li>
+					</ul>
+				<% else %>
+					<ul class="nav">
+						<li><a href="/login">Sign In</a></li>
+						<li><a href="/sign_up">Sign Up</a></li>
+					</ul>
+				<%end%>
+				
+			</div>
+		</div>
+	</div>
+	
 
-    <p><%if current_user %>Welcome, <%= current_user.username%> | <a href="/webapps/new">Register a New Webapp</a> | <a href="/webapps">Your Webapps</a> | <a href="/auth/logout" method="POST">Log Out</a><%else%><a href="/login">Log In</a> | <a href="/sign_up">Sign Up</a><%end%> </p>
-
-
-    <style>
-    body {
-      margin: 10px auto;
-      width: 800px;
-    }
-    </style>
+    
   </head>
   <body>
-    <h1>Blocmetrics</h1>
+    
+	<div class="container">
+		<% if flash[:success] %>
+		  <p><%= flash[:success] %></p>
+		<% end %>
 
-    <% if flash[:success] %>
-      <p><%= flash[:success] %></p>
-    <% end %>
+		<% if flash[:error] %>
+		  <p><%= flash[:error] %></p>
+		<% end %>
 
-    <% if flash[:error] %>
-      <p><%= flash[:error] %></p>
-    <% end %>
-
-    <%= yield %>
+		<%= yield %>
+	</div>
+	
   </body>
 </html>

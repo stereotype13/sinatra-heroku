@@ -1,5 +1,4 @@
 require 'data_mapper'
-#require 'dm-sqlite-adapter'
 require 'bcrypt'
 require 'securerandom'
 

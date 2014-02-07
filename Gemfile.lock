@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.3.5)
     bcrypt-ruby (3.1.2)
+    bcrypt-ruby (3.1.2-x86-mingw32)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -54,13 +55,18 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.13)
       data_objects (= 0.10.13)
+    do_postgres (0.10.13-x86-mingw32)
+      data_objects (= 0.10.13)
     do_sqlite3 (0.10.13)
+      data_objects (= 0.10.13)
+    do_sqlite3 (0.10.13-x86-mingw32)
       data_objects (= 0.10.13)
     fastercsv (1.5.5)
     json (1.8.1)
     json_pure (1.8.1)
     multi_json (1.8.4)
     pg (0.17.1)
+    pg (0.17.1-x86-mingw32)
     rack (1.5.2)
     sinatra (1.1.0)
       rack (~> 1.1)
@@ -68,12 +74,14 @@ GEM
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
     sqlite3 (1.3.8)
+    sqlite3 (1.3.8-x86-mingw32)
     stringex (1.5.1)
     tilt (1.4.1)
     uuidtools (2.1.4)
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   bcrypt-ruby
