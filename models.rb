@@ -83,28 +83,28 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-#users = User.all
-#users.each do |user|
-#  user.destroy
-#end
+users = User.all
+users.each do |user|
+ user.destroy
+end
 
-#webapps = Webapp.all(:id.not => 14)
-#webapps.each do |webapp|
-#	webapp.destroy
-#end
+webapps = Webapp.all(:id.not => 14)
+webapps.each do |webapp|
+	webapp.destroy
+end
 
 sessions = Session.all
 sessions.each do |session|
 	session.destroy
 end
 
-#admin_user = User.new
-#admin_user.username = "admin"
-#admin_user.password = "admin"
-#admin_user.save
+admin_user = User.new
+admin_user.username = "admin"
+admin_user.password = "admin"
+admin_user.save
 
-#webapp = Webapp.new
-#webapp.user = admin_user
-#webapp.name = "blocmetrics"
-#webapp.domain = "blocmetrics.com"
-#webapp.save
+webapp = Webapp.new
+webapp.user = admin_user
+webapp.name = "blocmetrics"
+webapp.domain = "blocmetrics.com"
+webapp.save
