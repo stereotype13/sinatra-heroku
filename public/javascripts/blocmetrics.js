@@ -14,9 +14,9 @@
             $.ajax(
                 {
                   type: "POST",
-				  url: "/event/data",
+				  url: "http://stereotype13-blocmetrics.herokuapp.com/event/data",
                   data: { 
-							webapp_key: "6DMsQrH9qjeIzJROp+slN3lj",
+							webapp_key: "QSi9jC6ODfx+F5k8YNcU1oD6",
                             tag_id: obj_id,
                             tag_type: obj_type,
 							event_url: $(location).attr('href')
