@@ -1,8 +1,8 @@
 <h1>Events</h1>
 
 <table>
-    <tr><th>Event ID</th><th>Tag ID</th><th>Tag Type</th><th>Event URL</th><th>Timestamp</th></tr>
+    <tr><th>Event ID</th><th>Tag ID</th><th>Tag Type</th><th>Tag HTML</th><th>Event URL</th><th>Timestamp</th></tr>
     <% @events.each do |event|%>
-        <tr><td><%= event.id %></td><td><%= event.tag_id %></td><td><%= event.tag_type %></td><td><%= event.url %></td><td><%= event.time_stamp %></td></tr>
+        <tr><td><%= event.id %></td><td><%= event.tag_id %></td><td><%= event.tag_type %></td><td><%= event.html %></td><td><%= event.url %></td><td><%= event.time_stamp %></td></tr>
     <% end %>
 </table>
