@@ -107,5 +107,5 @@ webapp = Webapp.new
 webapp.user = admin_user
 webapp.name = "blocmetrics"
 webapp.domain = "blocmetrics.com"
-webapp.webapp_key = "QSi9jC6ODfx+F5k8YNcU1oD6"
+webapp.webapp_key = "1234"
 webapp.save
