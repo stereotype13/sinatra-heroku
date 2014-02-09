@@ -88,11 +88,6 @@ users.each do |user|
  user.destroy
 end
 
-webapps = Webapp.all(:id.not => 14)
-webapps.each do |webapp|
-	webapp.destroy
-end
-
 sessions = Session.all
 sessions.each do |session|
 	session.destroy

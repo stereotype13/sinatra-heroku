@@ -181,6 +181,7 @@ class Blocmetrics < Sinatra::Application
 			@event = Event.new
 			@event.tag_id = params[:tag_id]
 			@event.tag_type = params[:tag_type]
+      @event.tag_html = params[:tag_html]
 			@event.url = params[:event_url]
 			@event.webapp = webapp
 			@event.save
