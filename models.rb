@@ -72,6 +72,7 @@ class Event
    property :id, Serial, key: true
    property :tag_id, String
    property :tag_type, String
+   property :tag_html, String, length: 255
    property :url, String
    property :time_stamp, DateTime
    

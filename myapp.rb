@@ -174,20 +174,31 @@ class Blocmetrics < Sinatra::Application
     end
     
     post '/event/data' do
-		#First, find the webapp that this event belongs to
-		if webapp = Webapp.first(webapp_key: params[:webapp_key])
-			puts "Webapp found"
-			#Then, create the new event.
-			@event = Event.new
-			@event.tag_id = params[:tag_id]
-			@event.tag_type = params[:tag_type]
-      @event.html = params[:tag_html]
-			@event.url = params[:event_url]
-			@event.webapp = webapp
-			@event.save
-		else
-			puts "Webapp not found"
-		end
-	end
+  	#First, find the webapp that this event belongs to
+  	if webapp = Webapp.first(webapp_key: params[:webapp_key])
+  		puts "Webapp found"
+  		#Then, create the new event.
+  		@event = Event.new
+  		@event.tag_id = params[:tag_id]
+  		@event.tag_type = params[:tag_type]
+
+      if params[:tag_html].length < 255
+        @event.tag_html = params[:tag_html]
+      else
+        @event.tag_html = ""
+      end
+      
+  		@event.url = params[:event_url]
+  		@event.webapp = webapp
+  		@event.save
+  	else
+  		puts "Webapp not found"
+  	end
+  end
+
+get '/chart-test' do
+  erb :chart_test
+end
+
 end
 
