@@ -2,6 +2,31 @@
 
 <canvas id="myChart" width="400" height="400"></canvas>
 
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="tabs">
+  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">1</div>
+  <div class="tab-pane" id="profile">2</div>
+  <div class="tab-pane" id="messages">3</div>
+  <div class="tab-pane" id="settings">4</div>
+</div>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><a href="/login">Sign In</a></li>
+      <li><a href="/sign_up">Sign Up</a></li>
+    </ul>
+  </div>
+</div>
+
 <script type="text/javascript">
   
 
@@ -30,4 +55,8 @@
   //This will get the first returned node in the jQuery collection.
   
   var myNewChart = new Chart(ctx).Line(data);
+
+  $(document).ready(function(){
+    $('#tabs').tabs();
+  });
 </script>

@@ -105,3 +105,11 @@ webapp.name = "blocmetrics"
 webapp.domain = "blocmetrics.com"
 webapp.webapp_key = "1234"
 webapp.save
+
+10.times do 
+  event = Event.new
+  event.webapp = webapp
+  #event.time_stamp = DateTime.now - Random.rand(0..5).days
+  event.time_stamp = Time.now - Random.rand(0..5)*24*60*60
+  event.save
+end

@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/flash'
 require './models'
+require 'json'
 
 class Blocmetrics < Sinatra::Application
     register Sinatra::Flash
@@ -47,7 +48,8 @@ class Blocmetrics < Sinatra::Application
     end
 
     get '/users' do
-      @users = User.all  
+      #@users = User.all  
+      @users = repository(:default).adapter.select("SELECT * FROM users")
       erb :users
     end
 
@@ -154,7 +156,25 @@ class Blocmetrics < Sinatra::Application
 	get '/webapps/:id/events' do
 		if current_user
 		  if @webapp = Webapp.first(user: current_user, id: params[:id])
-			@events = @webapp.events
+			@events = @webapp.events(:order => [ :time_stamp.desc ])
+
+      @grouped_events = {}
+
+      @events.each do |event|
+        if @grouped_events[event.time_stamp.to_date.to_s]
+          @grouped_events[event.time_stamp.to_date.to_s] += 1
+        else
+          @grouped_events[event.time_stamp.to_date.to_s] = 1
+        end
+      end
+
+      puts @grouped_events
+      @dates = @grouped_events.keys.map  {|d| Date.parse(d).strftime("%m/%d") } #returns array of dates
+      @data = @grouped_events.values #returns array of event occurances
+      #@data = json(@grouped_events, :encoder => :to_json, :content_type => :js)
+      #categorize event data
+      # myData = repository(:default).adapter.select("SELECT * FROM events WHERE webapp_id = #{@webapp.id} GROUP BY")
+
 			erb :events
 		  else
 			"There was a problem finding your web application."
@@ -170,6 +190,7 @@ class Blocmetrics < Sinatra::Application
     
     get '/events' do
         @events = Event.all
+        #@events = repository(:default).adapter.select("SELECT * FROM events")
         erb :events
     end
     

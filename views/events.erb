@@ -1,9 +1,61 @@
-<h1>Events</h1>
+<script src="/javascripts/Chart.min.js"></script>
+<h1><%= @webapp.name %></h1>
 
-<table>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="tabs">
+  <li class="active"><a href="#events" data-toggle="tab">Events</a></li>
+  <li><a href="#charts" data-toggle="tab">Charts</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="events">
+    <table>
     <tr><th>Event ID</th><th>Tag ID</th><th>Tag Type</th><th>Tag HTML</th><th>Event URL</th><th>Timestamp</th></tr>
-    <% @events.each do |event|%>
-        <tr><td><%= event.id %></td><td><%= event.tag_id %></td><td><%= event.tag_type %></td><td><%= event.tag_html %></td>
-          <td><%= event.url %></td><td><%= event.time_stamp %></td></tr>
-    <% end %>
-</table>
+      <% @events.each do |event|%>
+          <tr><td><%= event.id %></td><td><%= event.tag_id %></td><td><%= event.tag_type %></td><td><%= event.tag_html %></td>
+            <td><%= event.url %></td><td><%= event.time_stamp %></td></tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="tab-pane" id="charts">
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+  var data = {
+  labels : <%= @dates %>,
+  datasets : [
+      {
+        fillColor : "rgba(220,220,220,0.5)",
+        strokeColor : "rgba(220,220,220,1)",
+        pointColor : "rgba(220,220,220,1)",
+        pointStrokeColor : "#fff",
+        data : <%= @data %>
+      }
+      // ,
+      // {
+      //   fillColor : "rgba(151,187,205,0.5)",
+      //   strokeColor : "rgba(151,187,205,1)",
+      //   pointColor : "rgba(151,187,205,1)",
+      //   pointStrokeColor : "#fff",
+      //   data : [28,48,40,19,96,27,100]
+      // }
+    ]
+  };
+
+  //Get context with jQuery - using jQuery's .get() method.
+  var ctx = $("#myChart").get(0).getContext("2d");
+  //This will get the first returned node in the jQuery collection.
+  
+  var myNewChart = new Chart(ctx).Line(data);
+  myNewChart.rotateLabels(-45);
+   $(document).ready(function(){
+    $('#tabs').tabs();
+  });
+</script>
